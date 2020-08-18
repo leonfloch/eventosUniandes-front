@@ -1,5 +1,14 @@
 # EventosUniandesFront
 
+### Taller 0.
+
+La empresa ABC desea desarrollar un prototipo funcional de una aplicación web que permitirá
+manejar eventos. Un evento está compuesto de un nombre, una categoría (las cuatro posibles
+categorías son: Conferencia, Seminario, Congreso o Curso), un lugar, una dirección, una fecha de
+inicio y una fecha de fin, y si el evento es presencial o virtual.
+
+# Config
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
 
 ## Development server
@@ -25,3 +34,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+ng serve --host 0.0.0.0 --port 8070 --disable-host-check
+ng serve --host 0.0.0.0 --disableHostCheck
