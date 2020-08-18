@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UserCreateComponent } from './components/user-create/user-create.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
+import { EventsListComponent } from './components/events-list/events-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    HomeComponent,
+    EventsListComponent
   ],
   imports: [
     BrowserModule,

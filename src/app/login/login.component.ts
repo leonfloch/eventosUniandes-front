@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
 
     this.userService.authUser(this.username, this.password).subscribe((response:any) => {
         console.log('login ok', JSON.stringify(response));
+        this.redirect("home");
       }, error => {
         console.log('login error', error);
       }
