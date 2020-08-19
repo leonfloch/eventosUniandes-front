@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { Createuser } from '../../mocks/createUser';
 import { Login } from '../../mocks/login';
 
+import {User} from '../../model/user';
 import { RequestService } from '../request/request.service';
 
 @Injectable({
@@ -16,11 +17,9 @@ export class UserService {
   /**
    * Servicio encargado de crear un usuario nuevo
    */
-  createUser(): Observable<any> {
-
+  createUser(user:User): Observable<any> {
     console.log("Crear usuario service");
-
-    return of(Createuser);
+    return this.requestService.post('/create-user/', user);
   }
 
   /**

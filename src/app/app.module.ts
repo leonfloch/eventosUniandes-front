@@ -9,6 +9,8 @@ import { UserCreateComponent } from './components/user-create/user-create.compon
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { EventsListComponent } from './components/events-list/events-list.component';
+import { EventCreateComponent } from './components/event-create/event-create.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { EventsListComponent } from './components/events-list/events-list.compon
     LoginComponent,
     UserCreateComponent,
     HomeComponent,
-    EventsListComponent
+    EventsListComponent,
+    EventCreateComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

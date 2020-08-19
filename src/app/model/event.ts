@@ -9,6 +9,8 @@ export class Event {
   event_type:string;
   user_id:string;
 
-  constructor() {}
+  public constructor(init?: Partial<Event>) {
+    Object.assign(this, init);
+}
 
 }

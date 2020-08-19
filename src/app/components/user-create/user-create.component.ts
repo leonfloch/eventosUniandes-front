@@ -3,6 +3,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
 import {UserService} from '../../services/user/user.service';
 
+import {User} from '../../model/user';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-user-create',
   templateUrl: './user-create.component.html',
@@ -12,7 +15,7 @@ export class UserCreateComponent implements OnInit {
 
   user: FormGroup;
 
-  constructor(private fb: FormBuilder, private userService: UserService) { }
+  constructor(private fb: FormBuilder, private userService: UserService, private route: Router) { }
 
   ngOnInit(): void {
     this.user = this.fb.group({
@@ -28,15 +31,22 @@ export class UserCreateComponent implements OnInit {
 
 
   onSubmit() {
-    this.userService.createUser().subscribe(
+    let newUser:User = new User(this.user.value);
+    this.userService.createUser(newUser).subscribe(
       response => {
         console.log('registro exitoso');
+        this.redirect('');
       }, error => {
         console.log('Registro fallido');
       }
     );
 
 
+  }
+
+
+  redirect(routePath: any) {
+    this.route.navigate([routePath]);
   }
 
 }

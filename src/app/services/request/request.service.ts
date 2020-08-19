@@ -5,14 +5,6 @@ import { retry, catchError } from 'rxjs/operators';
 
 import {SecurityService} from '../security/security.service';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-};
-
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +23,7 @@ export class RequestService {
    * @param data
    */
   post<T>(url, data): Observable<T> {
-    return this.http.post<T>(this.baseUrl + url, data, httpOptions).pipe(
+    return this.http.post<T>(this.baseUrl + url, data, this.getHttpOptionsAuth()).pipe(
       catchError(this.handleError)
     );
   }

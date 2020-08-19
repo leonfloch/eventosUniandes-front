@@ -1,0 +1,27 @@
+<app-menu></app-menu>
+
+
+<form novalidate [formGroup]="event" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+
+  <p class="h4 mb-4">New Event</p>
+
+  <input type="text" id="name" class="form-control mb-4" placeholder="User Name" formControlName="event_name">
+
+  <input type="text" id="category" class="form-control mb-4" placeholder="E-mail" formControlName="event_category">
+
+  <input type="text" id="place" class="form-control mb-4" placeholder="Password" formControlName="event_place">
+
+  <input type="text" id="address" class="form-control mb-4" placeholder="Password" formControlName="event_address">
+
+  <input type="text" id="initialDate" class="form-control mb-4" placeholder="Password" formControlName="event_initial_date">
+
+  <input type="text" id="endDate" class="form-control mb-4" placeholder="Password" formControlName="event_final_date">
+
+  <input type="text" id="type" class="form-control mb-4" placeholder="Password" formControlName="event_type">
+
+
+  <button class="btn btn-lg btn-primary btn-block" [disabled]="event.invalid" type="submit">Create</button>
+
+
+</form>
+<!-- Default form register -->
