@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 import { UserService } from '../services/user/user.service';
+import {Login} from '../model/Login';
 
 @Component({
   selector: 'app-login',
@@ -25,8 +26,9 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
 
-    this.userService.authUser(this.username, this.password).subscribe((response:any) => {
+    this.userService.authUser(this.username, this.password).subscribe((response:Login) => {
         console.log('login ok', JSON.stringify(response));
+        localStorage.setItem('user', JSON.stringify(response));
         this.redirect("home");
       }, error => {
         console.log('login error', error);

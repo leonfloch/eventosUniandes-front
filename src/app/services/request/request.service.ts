@@ -3,11 +3,15 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angul
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
+import {SecurityService} from '../security/security.service';
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
   })
 };
+
+
 
 
 @Injectable({
@@ -17,7 +21,7 @@ export class RequestService {
 
   baseUrl = "http://0.0.0.0:8081/api";
 
-  constructor(protected http: HttpClient) { }
+  constructor(protected http: HttpClient, private securityService:SecurityService) { }
 
 
 
@@ -32,6 +36,18 @@ export class RequestService {
     );
   }
 
+  get<T>(url): Observable<T> {
+    return this.http.get<T>(this.baseUrl + url, this.getHttpOptionsAuth()).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  /**
+   *
+   */
+  private getTokenSession() {
+    return this.securityService.getUserSession().token;
+  }
 
 
   private handleError(error: HttpErrorResponse) {
@@ -48,6 +64,21 @@ export class RequestService {
     // Return an observable with a user-facing error message.
     return throwError(
       'Something bad happened; please try again later.');
+  }
+
+  /**
+   *
+   */
+  private getHttpOptionsAuth() {
+
+    let httpOptionsAuth = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': this.getTokenSession(),
+      })
+    };
+    return httpOptionsAuth;
+
   }
 
 

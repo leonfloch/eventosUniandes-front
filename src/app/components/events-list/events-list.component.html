@@ -1,1 +1,28 @@
-<p>events-list works!</p>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Place</th>
+      <th scope="col">Address</th>
+      <th scope="col">Init Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Type</th>
+      <th scope="col">User</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let event of events">
+      <th scope="row">{{event.id}}</th>
+      <td>{{event.event_name}}</td>
+      <td>{{event.event_category}}</td>
+      <td>{{event.event_place}}</td>
+      <td>{{event.event_address}}</td>
+      <td>{{event.event_final_date}}</td>
+      <td>{{event.event_final_date}}</td>
+      <td>{{event.event_type}}</td>
+      <td>{{event.user_id}}</td>
+    </tr>
+  </tbody>
+</table>
