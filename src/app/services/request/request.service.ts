@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angul
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
+import {environment} from '../../../environments/environment';
 import {SecurityService} from '../security/security.service';
 
 
@@ -11,7 +12,7 @@ import {SecurityService} from '../security/security.service';
 })
 export class RequestService {
 
-  baseUrl = "http://0.0.0.0:8081/api";
+  baseUrl = environment.baseUrl;
 
   constructor(protected http: HttpClient, private securityService:SecurityService) { }
 
