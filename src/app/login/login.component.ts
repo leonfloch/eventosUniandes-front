@@ -13,10 +13,12 @@ import {Login} from '../model/Login';
 export class LoginComponent implements OnInit {
 
   authForm: FormGroup;
+  showError:boolean
 
   constructor(private route: Router, private fb: FormBuilder, private userService: UserService) { }
 
   ngOnInit(): void {
+    this.showError = false;
     this.authForm = this.fb.group({
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
@@ -28,9 +30,11 @@ export class LoginComponent implements OnInit {
 
     this.userService.authUser(this.username, this.password).subscribe((response:Login) => {
         console.log('login ok', JSON.stringify(response));
+        this.showError = false;
         localStorage.setItem('user', JSON.stringify(response));
         this.redirect("home");
       }, error => {
+        this.showError = true;
         console.log('login error', error);
       }
 

@@ -47,6 +47,11 @@
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" [disabled]="authForm.invalid" type="submit">Sign in</button>
+
+    <div *ngIf="showError" class="alert alert-danger" role="alert">
+      Invalid Data
+    </div>
+
     <p class="mt-5 mb-3 text-muted">&copy; Taller 0 Uniandes</p>
   </form>
 </body>

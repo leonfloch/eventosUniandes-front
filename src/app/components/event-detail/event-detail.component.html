@@ -1,20 +1,26 @@
 <app-menu></app-menu>
 
 <div class="text-center border border-light p-5">
-  <p class="h4 mb-4">Event Detail</p>
-  <div class="card" style="width: 30rem;">
-    <div class="card-body">
-      <h5 class="card-title">{{event.event_name}}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{event.event_category}}</h6>
-      <p class="card-text">{{event.event_place}}</p>
-      <p class="card-text">{{event.event_address}}</p>
-      <p class="card-text">{{event.event_initial_date}}</p>
-      <p class="card-text">{{event.event_final_date}}</p>
-      <p class="card-text">{{event.event_type}}</p>
-    </div>
-  </div>
+
+  <p class="h4 mb-4">New Event</p>
+
+  <input type="text" [(ngModel)]="event.event_name" id="name" class="form-control mb-4" placeholder="name" >
+
+  <input type="text" [(ngModel)]="event.event_category" id="category" class="form-control mb-4" placeholder="category" >
+
+  <input type="text" [(ngModel)]="event.event_place" id="place" class="form-control mb-4" placeholder="place" >
+
+  <input type="text" [(ngModel)]="event.event_address" id="address" class="form-control mb-4" placeholder="address" >
+
+  <input type="text" [(ngModel)]="event.event_type" id="type" class="form-control mb-4" placeholder="type" >
+
+
+  <button class="btn btn-lg btn-primary btn-block" (click)="updateEvent()" type="submit">Update Event</button>
 
   <br/>
-
   <button class="btn btn-lg btn-danger btn-block" (click)="deleteEvent()" type="submit">Delete Event</button>
+
+
 </div>
+
+

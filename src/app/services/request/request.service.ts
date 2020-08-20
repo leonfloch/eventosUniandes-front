@@ -42,6 +42,13 @@ export class RequestService {
     );
   }
 
+  put<T>(url, data): Observable<T> {
+    console.log('URL put: ', url)
+    return this.http.put<T>(this.baseUrl + url, data, this.getHttpOptionsAuth()).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   /**
    *
    */

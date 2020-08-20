@@ -31,7 +31,10 @@ export class EventService {
 
   deleteEvent(idEvent) {
     return this.requestService.delete('/events/' + idEvent);
+  }
 
+  updateEvent(event:Event) {
+    return this.requestService.put('/events/' + event.id, event);
   }
 
 }

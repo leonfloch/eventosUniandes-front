@@ -35,8 +35,7 @@ export class EventCreateComponent implements OnInit {
    */
   onSubmit() {
     let newEvent:Event = new Event(this.event.value);
-    this.eventService.createEvent(newEvent).subscribe(
-      response => {
+    this.eventService.createEvent(newEvent).subscribe(response => {
         console.log("Evento creado OK: ", JSON.stringify(response));
         this.redirect('home');
       }, error => {
