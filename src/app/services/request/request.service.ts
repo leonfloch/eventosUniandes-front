@@ -35,6 +35,13 @@ export class RequestService {
     );
   }
 
+  delete<T>(url): Observable<T> {
+    console.log('URL delete: ', url)
+    return this.http.delete<T>(this.baseUrl + url, this.getHttpOptionsAuth()).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   /**
    *
    */

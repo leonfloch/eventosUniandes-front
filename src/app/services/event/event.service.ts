@@ -19,7 +19,18 @@ export class EventService {
 
 
   createEvent(event:Event) {
+    let initDate = event.event_initial_date + 'T18:00:00Z';
+    let endDate = event.event_final_date + 'T18:00:00Z';
+
+    event.event_initial_date = initDate;
+    event.event_final_date = endDate;
+
     return this.requestService.post('/events/', event);
+
+  }
+
+  deleteEvent(idEvent) {
+    return this.requestService.delete('/events/' + idEvent);
 
   }
 

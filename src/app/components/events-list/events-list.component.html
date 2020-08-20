@@ -14,7 +14,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let event of events">
-      <th scope="row">{{event.id}}</th>
+      <th scope="row" (click)="selectEvent(event)">VER DETALLE</th>
       <td>{{event.event_name}}</td>
       <td>{{event.event_category}}</td>
       <td>{{event.event_place}}</td>

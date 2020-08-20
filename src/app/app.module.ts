@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { EventsListComponent } from './components/events-list/events-list.component';
 import { EventCreateComponent } from './components/event-create/event-create.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { EventDetailComponent } from './components/event-detail/event-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MenuComponent } from './components/menu/menu.component';
     HomeComponent,
     EventsListComponent,
     EventCreateComponent,
-    MenuComponent
+    MenuComponent,
+    EventDetailComponent
   ],
   imports: [
     BrowserModule,

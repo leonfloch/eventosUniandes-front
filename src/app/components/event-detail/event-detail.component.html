@@ -1,0 +1,20 @@
+<app-menu></app-menu>
+
+<div class="text-center border border-light p-5">
+  <p class="h4 mb-4">Event Detail</p>
+  <div class="card" style="width: 30rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{event.event_name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{event.event_category}}</h6>
+      <p class="card-text">{{event.event_place}}</p>
+      <p class="card-text">{{event.event_address}}</p>
+      <p class="card-text">{{event.event_initial_date}}</p>
+      <p class="card-text">{{event.event_final_date}}</p>
+      <p class="card-text">{{event.event_type}}</p>
+    </div>
+  </div>
+
+  <br/>
+
+  <button class="btn btn-lg btn-danger btn-block" (click)="deleteEvent()" type="submit">Delete Event</button>
+</div>
