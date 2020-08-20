@@ -53,7 +53,7 @@ export class RequestService {
    *
    */
   private getTokenSession() {
-    return this.securityService.getUserSession().token;
+    return (this.securityService.getUserSession()) ? this.securityService.getUserSession().token : '';
   }
 
 
